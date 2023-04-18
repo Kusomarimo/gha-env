@@ -13,8 +13,9 @@ jobs:
     runs-on: ubuntu-latest
     env:
       MONGODB_CLUSTER_ADDRESS: cluster0.cbf3jed.mongodb.net
-      MONGODB_USERNAME: caadmin
-      MONGODB_PASSWORD: 123_abc_
+      # Secrets Context, see Github Actions doc
+      MONGODB_USERNAME: ${{ secrets.MONGODB_USERNAME }}
+      MONGODB_PASSWORD: ${{ secrets.MONGODB_PASSWORD }}
       PORT: 8080
     steps:
       - name: Get Code
